@@ -1,0 +1,11 @@
+итого 264
+drwxrwxr-x  3 user user   4096 янв 30 12:30 .
+drwxrwxr-x 20 user user   4096 янв 29 12:38 ..
+drwxrwxr-x  2 user user   4096 янв 29 12:38 1
+-rw-rw-r--  1 user user      0 янв 29 12:38 1.txt
+-rwxrwxr-x  1 user user   2016 янв 29 16:31 docker_status.sh
+-rw-rw-r--  1 user user     26 янв 29 15:17 file1
+-rw-rw-r--  1 user user      0 янв 30 12:30 itog.txt
+-rw-rw-r--  1 user user    100 янв 29 15:06 ls-error.log
+prw-rw-r--  1 user user      0 янв 29 15:36 pipe
+-rw-rw-r--  1 user user 242453 янв 29 15:05 top.log
