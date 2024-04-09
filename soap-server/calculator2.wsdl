@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="Calculator"
+             targetNamespace="http://localhost:8015"
+             xmlns:tns="http://localhost:8015"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+    <wsdl:message name="addRequest">
+        <wsdl:part name="a" type="xsd:int"/>
+        <wsdl:part name="b" type="xsd:int"/>
+    </wsdl:message>
+
+    <wsdl:message name="addResponse">
+        <wsdl:part name="result" type="xsd:int"/>
+    </wsdl:message>
+
+    <wsdl:portType name="CalculatorPortType">
+        <wsdl:operation name="add" parameterOrder = "add">
+            <wsdl:input name="add" message = "tns:addRequest"/>
+            <wsdl:output name="add" message = "tns:addResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CalculatorBinding" type="tns:CalculatorPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="add">
+            <soap:operation soapAction="http://localhost:8015#add"/>
+            <wsdl:input>
+                <soap:body use="encoded" namespace="http://localhost:8015" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="encoded" namespace="http://localhost:8015" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="CalculatorService">
+        <wsdl:port name="CalculatorPort" binding="tns:CalculatorBinding">
+            <soap:address location="http://localhost:8015/server.php"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
